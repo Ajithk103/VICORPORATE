@@ -1,0 +1,1276 @@
+<div class="kt-landing">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Outfit:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ============================================================
+   TOKENS
+============================================================ */
+.kt-landing{
+  --ink:#0A2420;
+  --teal:#11332F;
+  --teal-light:#1B4A43;
+  --palm:#3C7A5A;
+  --palm-light:#8FB89E;
+  --sand:#F4ECDA;
+  --sand-deep:#E8D9B8;
+  --ivory:#FBF6EC;
+  --brass:#C99A3A;
+  --brass-light:#E2C27E;
+  --clay:#BE5B2E;
+  --text-dark:#13231F;
+  --text-soft:#4C5E58;
+  --shadow-lg: 0 30px 70px -28px rgba(8,24,21,0.55);
+  --shadow-sm: 0 10px 24px -14px rgba(8,24,21,0.35);
+  --radius: 18px;
+  --font-display:'Fraunces', serif;
+  --font-body:'Outfit', sans-serif;
+  --font-mono:'Space Mono', monospace;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+.kt-landing *, .kt-landing *::before, .kt-landing *::after{ box-sizing:border-box; }
+@media (prefers-reduced-motion: reduce){
+.kt-landing *, .kt-landing *::before, .kt-landing *::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+.kt-landing{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--text-dark);
+  background:var(--sand);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.kt-landing img, .kt-landing svg{ display:block; max-width:100%; }
+.kt-landing a{ color:inherit; text-decoration:none; }
+.kt-landing ul{ margin:0; padding:0; list-style:none; }
+.kt-landing h1, .kt-landing h2, .kt-landing h3, .kt-landing h4{ margin:0; font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em; }
+.kt-landing p{ margin:0; }
+.kt-landing button{ font-family:inherit; cursor:pointer; }
+.kt-landing input, .kt-landing select{ font-family:inherit; }
+.kt-landing :focus-visible{
+  outline: 2.5px solid var(--brass);
+  outline-offset: 3px;
+}
+.kt-landing .eyebrow{
+  font-family:var(--font-mono);
+  font-size:0.72rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.kt-landing .eyebrow::before{
+  content:'';
+  width:22px;
+  height:1px;
+  background:currentColor;
+  opacity:0.6;
+  display:inline-block;
+}
+.kt-landing .wrap{
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 32px;
+}
+@media (max-width:720px){
+.kt-landing .wrap{ padding:0 22px; }
+}
+
+/* ============================================================
+   KASAVU DIVIDER — signature motif (gold-thread zigzag border,
+   echoing the kasavu/zari border on Kerala's white-and-gold settu mundu
+   and the bunting strung across temple gopurams during festival)
+============================================================ */
+.kt-landing .kasavu{
+  width:100%;
+  height:14px;
+  display:block;
+}
+.kt-landing .kasavu--light polyline{ stroke:var(--brass); }
+.kt-landing .kasavu--onsand polyline{ stroke:var(--teal); opacity:0.55; }
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.kt-landing .btn{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:15px 28px;
+  border-radius:999px;
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:0.95rem;
+  border:1.5px solid transparent;
+  transition:transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease), border-color .35s var(--ease);
+}
+.kt-landing .btn-brass{
+  background:var(--brass);
+  color:var(--ink);
+}
+.kt-landing .btn-brass:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 30px -12px rgba(201,154,58,0.55);
+  background:var(--brass-light);
+}
+.kt-landing .btn-ghost{
+  background:transparent;
+  color:var(--ivory);
+  border-color:rgba(251,246,236,0.4);
+}
+.kt-landing .btn-ghost:hover{
+  border-color:var(--brass-light);
+  color:var(--brass-light);
+  transform:translateY(-3px);
+}
+.kt-landing .btn-dark{
+  background:var(--ink);
+  color:var(--ivory);
+}
+.kt-landing .btn-dark:hover{
+  background:var(--teal-light);
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-sm);
+}
+.kt-landing .btn-arrow{ transition:transform 0.35s var(--ease); }
+.kt-landing .btn:hover .btn-arrow{ transform:translateX(4px); }
+
+/* ============================================================
+   NAV
+============================================================ */
+.kt-landing .nav{
+  position:sticky;
+  top:0;
+  z-index:90;
+  background:rgba(10,36,32,0.86);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(251,246,236,0.08);
+}
+.kt-landing .nav .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:78px;
+}
+.kt-landing .brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:600;
+  font-size:1.3rem;
+  color:var(--ivory);
+}
+.kt-landing .brand-mark{ color:var(--brass); }
+.kt-landing .brand-mark svg{ width:26px; height:26px; }
+.kt-landing .nav-links{
+  display:flex;
+  align-items:center;
+  gap:34px;
+}
+.kt-landing .nav-links a{
+  font-size:0.92rem;
+  color:rgba(251,246,236,0.78);
+  position:relative;
+  padding:6px 0;
+  transition:color 0.3s var(--ease);
+}
+.kt-landing .nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0; bottom:0;
+  height:1.5px; width:0;
+  background:var(--brass);
+  transition:width 0.35s var(--ease);
+}
+.kt-landing .nav-links a:hover{ color:var(--ivory); }
+.kt-landing .nav-links a:hover::after{ width:100%; }
+.kt-landing .nav-cta{ display:flex; align-items:center; gap:18px; }
+.kt-landing .nav-toggle{
+  display:none;
+  background:none;
+  border:1px solid rgba(251,246,236,0.3);
+  border-radius:10px;
+  width:42px; height:42px;
+  align-items:center;
+  justify-content:center;
+  color:var(--ivory);
+}
+@media (max-width:880px){
+.kt-landing .nav-links{
+    position:fixed;
+    top:78px; left:0; right:0;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    background:var(--ink);
+    padding:8px 22px 18px;
+    border-bottom:1px solid rgba(251,246,236,0.08);
+    transform:translateY(-130%);
+    opacity:0;
+    transition:transform 0.4s var(--ease), opacity 0.3s var(--ease);
+    pointer-events:none;
+  }
+.kt-landing .nav-links.open{
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+.kt-landing .nav-links a{ width:100%; padding:14px 0; border-bottom:1px solid rgba(251,246,236,0.06); }
+.kt-landing .nav-toggle{ display:flex; }
+.kt-landing .nav-cta .btn span.btn-text-full{ display:none; }
+.kt-landing .nav-cta .btn{ padding:13px 16px; }
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+.kt-landing .hero{
+  position:relative;
+  background:radial-gradient(120% 100% at 80% -10%, #1C4F47 0%, var(--ink) 55%), var(--ink);
+  color:var(--ivory);
+  padding:108px 0 0;
+  overflow:hidden;
+}
+.kt-landing .hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr 0.85fr;
+  gap:50px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+  padding-bottom:80px;
+}
+.kt-landing .hero-eyebrow{ color:var(--brass-light); margin-bottom:26px; }
+.kt-landing .hero h1{
+  font-size:clamp(2.5rem, 4.6vw, 4.1rem);
+  line-height:1.04;
+  font-weight:600;
+  max-width:14ch;
+}
+.kt-landing .hero h1 em{
+  font-style:italic;
+  color:var(--brass-light);
+  font-weight:500;
+}
+.kt-landing .hero-sub{
+  margin-top:26px;
+  font-size:1.08rem;
+  line-height:1.65;
+  color:rgba(251,246,236,0.78);
+  max-width:46ch;
+}
+.kt-landing .hero-actions{
+  margin-top:38px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.kt-landing .hero-stats{
+  margin-top:56px;
+  display:flex;
+  gap:38px;
+  flex-wrap:wrap;
+}
+.kt-landing .hero-stat b{
+  display:block;
+  font-family:var(--font-display);
+  font-size:1.7rem;
+  color:var(--ivory);
+}
+.kt-landing .hero-stat span{
+  font-family:var(--font-mono);
+  font-size:0.68rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--palm-light);
+}
+
+/* hero illustration: layered houseboat scene */
+.kt-landing .hero-art{ position:relative; height:420px; }
+.kt-landing .hero-art svg{ width:100%; height:100%; }
+.kt-landing .hero-moon{ animation:glow 5s ease-in-out infinite; transform-origin:center; }
+@keyframes glow{
+  0%,100%{ opacity:0.85; }
+  50%{ opacity:1; }
+}
+.kt-landing .hero-water-line{ animation:ripple 7s ease-in-out infinite; }
+.kt-landing .hero-water-line.l2{ animation-delay:.5s; }
+.kt-landing .hero-water-line.l3{ animation-delay:1s; }
+@keyframes ripple{
+  0%,100%{ transform:translateX(0); opacity:.5; }
+  50%{ transform:translateX(10px); opacity:.85; }
+}
+.kt-landing .hero-boat{ animation:bob 6s ease-in-out infinite; transform-origin:50% 100%; }
+@keyframes bob{
+  0%,100%{ transform:translateY(0) rotate(0deg); }
+  50%{ transform:translateY(-7px) rotate(-0.6deg); }
+}
+.kt-landing .hero-bird{ animation:fly 9s linear infinite; }
+@keyframes fly{
+  0%{ transform:translate(0,0); }
+  50%{ transform:translate(-14px,-10px); }
+  100%{ transform:translate(0,0); }
+}
+.kt-landing .hero-base{ position:relative; z-index:2; }
+
+/* ============================================================
+   SECTION HEADS (shared)
+============================================================ */
+.kt-landing .section{ padding:108px 0; }
+@media (max-width:720px){
+.kt-landing .section{ padding:76px 0; } }
+.kt-landing .section-head{
+  max-width:640px;
+  margin-bottom:62px;
+}
+.kt-landing .section-head .eyebrow{ color:var(--clay); margin-bottom:18px; }
+.kt-landing .section--dark .section-head .eyebrow{ color:var(--brass-light); }
+.kt-landing .section-head h2{
+  font-size:clamp(1.9rem, 3vw, 2.7rem);
+  line-height:1.12;
+}
+.kt-landing .section-head p{
+  margin-top:18px;
+  font-size:1.05rem;
+  color:var(--text-soft);
+  line-height:1.6;
+}
+.kt-landing .section--dark .section-head p{ color:rgba(251,246,236,0.72); }
+.kt-landing .reveal{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.kt-landing .reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* ============================================================
+   FEATURE CARDS
+============================================================ */
+.kt-landing .features-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:22px;
+}
+@media (max-width:980px){
+.kt-landing .features-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){
+.kt-landing .features-grid{ grid-template-columns:1fr; } }
+.kt-landing .feature-card{
+  background:var(--ivory);
+  border-radius:var(--radius);
+  padding:34px 26px 30px;
+  border:1px solid var(--sand-deep);
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color .45s var(--ease);
+}
+.kt-landing .feature-card::before{
+  content:'';
+  position:absolute;
+  inset:0 0 auto 0;
+  height:4px;
+  background:linear-gradient(90deg, var(--brass), var(--clay));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .5s var(--ease);
+}
+.kt-landing .feature-card:hover{
+  transform:translateY(-10px);
+  box-shadow:var(--shadow-lg);
+  border-color:transparent;
+}
+.kt-landing .feature-card:hover::before{ transform:scaleX(1); }
+.kt-landing .feature-icon{
+  width:54px; height:54px;
+  border-radius:14px;
+  background:var(--sand);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--palm);
+  margin-bottom:22px;
+  transition:background .45s var(--ease), color .45s var(--ease), transform .45s var(--ease);
+}
+.kt-landing .feature-card:hover .feature-icon{
+  background:var(--ink);
+  color:var(--brass-light);
+  transform:scale(1.08) rotate(-4deg);
+}
+.kt-landing .feature-icon svg{ width:28px; height:28px; }
+.kt-landing .feature-card h3{ font-size:1.25rem; margin-bottom:10px; }
+.kt-landing .feature-card p{ color:var(--text-soft); font-size:0.95rem; line-height:1.6; }
+.kt-landing .feature-tag{
+  display:inline-block;
+  margin-top:18px;
+  font-family:var(--font-mono);
+  font-size:0.68rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--clay);
+}
+
+/* ============================================================
+   GALLERY / HIGHLIGHTS — bento grid
+============================================================ */
+.kt-landing .gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(6, 1fr);
+  grid-auto-rows:170px;
+  grid-auto-flow:dense;
+  gap:18px;
+}
+.kt-landing .gallery-block{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  grid-column:span 3;
+  grid-row:span 1;
+  cursor:default;
+}
+.kt-landing .gallery-block.tall{ grid-row:span 2; }
+.kt-landing .gallery-block.wide{ grid-column:span 4; }
+.kt-landing .gallery-block.narrow{ grid-column:span 2; }
+@media (max-width:880px){
+.kt-landing .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:160px; }
+.kt-landing .gallery-block, .kt-landing .gallery-block.wide, .kt-landing .gallery-block.narrow{ grid-column:span 1; }
+.kt-landing .gallery-block.tall{ grid-row:span 1; }
+}
+.kt-landing .gallery-block svg{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  transition:transform 0.7s var(--ease);
+}
+.kt-landing .gallery-block:hover svg{ transform:scale(1.08); }
+.kt-landing .gallery-info{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:18px 20px;
+  background:linear-gradient(180deg, transparent, rgba(8,22,19,0.86));
+  color:var(--ivory);
+  transform:translateY(8px);
+  opacity:0.92;
+  transition:transform 0.4s var(--ease);
+}
+.kt-landing .gallery-block:hover .gallery-info{ transform:translateY(0); }
+.kt-landing .gallery-info b{ font-family:var(--font-display); font-size:1.08rem; font-weight:600; display:block; }
+.kt-landing .gallery-info span{ font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.06em; color:var(--brass-light); text-transform:uppercase; }
+.kt-landing .gallery-info p{ font-size:0.82rem; margin-top:6px; color:rgba(251,246,236,0.78); max-width:34ch; }
+
+/* ============================================================
+   WHY CHOOSE US
+============================================================ */
+.kt-landing .why-grid{
+  display:grid;
+  grid-template-columns:0.85fr 1.15fr;
+  gap:60px;
+  align-items:start;
+}
+@media (max-width:880px){
+.kt-landing .why-grid{ grid-template-columns:1fr; gap:36px; } }
+.kt-landing .why-pin{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem,2.6vw,2.5rem);
+  line-height:1.2;
+  color:var(--ink);
+}
+.kt-landing .why-pin em{ font-style:italic; color:var(--clay); }
+.kt-landing .why-list{ display:flex; flex-direction:column; gap:0; }
+.kt-landing .why-item{
+  display:grid;
+  grid-template-columns:54px 1fr;
+  gap:20px;
+  padding:26px 0;
+  border-top:1px solid var(--sand-deep);
+  transition:padding-left .4s var(--ease);
+}
+.kt-landing .why-item:last-child{ border-bottom:1px solid var(--sand-deep); }
+.kt-landing .why-item:hover{ padding-left:10px; }
+.kt-landing .why-icon{
+  width:54px; height:54px;
+  border-radius:50%;
+  background:var(--sand-deep);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--palm);
+  flex-shrink:0;
+  transition:background .4s var(--ease), color .4s var(--ease);
+}
+.kt-landing .why-item:hover .why-icon{ background:var(--brass); color:var(--ink); }
+.kt-landing .why-icon svg{ width:24px; height:24px; }
+.kt-landing .why-text h4{ font-size:1.08rem; margin-bottom:6px; }
+.kt-landing .why-text p{ color:var(--text-soft); font-size:0.94rem; line-height:1.55; }
+
+/* ============================================================
+   TESTIMONIALS
+============================================================ */
+.kt-landing .section--dark{ background:var(--ink); color:var(--ivory); }
+.kt-landing .testi-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:24px;
+}
+@media (max-width:920px){
+.kt-landing .testi-grid{ grid-template-columns:1fr; } }
+.kt-landing .testi-card{
+  background:var(--teal);
+  border:1px solid rgba(251,246,236,0.08);
+  border-radius:var(--radius);
+  padding:32px 28px;
+  display:flex;
+  flex-direction:column;
+  transition:transform .45s var(--ease), background .45s var(--ease), box-shadow .45s var(--ease);
+}
+.kt-landing .testi-card:hover{
+  transform:translateY(-8px);
+  background:var(--teal-light);
+  box-shadow:0 30px 60px -24px rgba(0,0,0,0.5);
+}
+.kt-landing .testi-quote-mark{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:2.6rem;
+  color:var(--brass);
+  line-height:1;
+  margin-bottom:6px;
+}
+.kt-landing .testi-card p.quote{
+  font-size:1rem;
+  line-height:1.65;
+  color:rgba(251,246,236,0.92);
+  flex-grow:1;
+}
+.kt-landing .testi-person{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:26px;
+  padding-top:20px;
+  border-top:1px solid rgba(251,246,236,0.1);
+}
+.kt-landing .testi-avatar{
+  width:44px; height:44px;
+  border-radius:50%;
+  background:var(--brass);
+  color:var(--ink);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono);
+  font-weight:700;
+  font-size:0.82rem;
+}
+.kt-landing .testi-person b{ display:block; font-size:0.94rem; font-family:var(--font-body); font-weight:600; }
+.kt-landing .testi-person span{ font-size:0.78rem; color:var(--palm-light); }
+
+/* ============================================================
+   FORM
+============================================================ */
+.kt-landing .plan-section{ background:var(--sand); position:relative; }
+.kt-landing .plan-shell{
+  background:var(--ivory);
+  border-radius:24px;
+  padding:54px;
+  display:grid;
+  grid-template-columns:0.8fr 1.2fr;
+  gap:50px;
+  box-shadow:var(--shadow-lg);
+  border:1px solid var(--sand-deep);
+}
+@media (max-width:920px){
+.kt-landing .plan-shell{ grid-template-columns:1fr; padding:34px 24px; } }
+.kt-landing .plan-side h3{ font-size:1.7rem; line-height:1.2; margin-bottom:16px; }
+.kt-landing .plan-side p{ color:var(--text-soft); line-height:1.6; font-size:0.96rem; }
+.kt-landing .plan-points{ margin-top:28px; display:flex; flex-direction:column; gap:14px; }
+.kt-landing .plan-point{ display:flex; align-items:flex-start; gap:12px; font-size:0.88rem; color:var(--text-dark); }
+.kt-landing .plan-point svg{ width:18px; height:18px; color:var(--palm); flex-shrink:0; margin-top:2px; }
+.kt-landing .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.kt-landing .form-row.single{ grid-template-columns:1fr; }
+@media (max-width:560px){
+.kt-landing .form-row{ grid-template-columns:1fr; } }
+.kt-landing .field{ margin-bottom:18px; display:flex; flex-direction:column; gap:8px; }
+.kt-landing .field label{
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  letter-spacing:0.07em;
+  text-transform:uppercase;
+  color:var(--text-soft);
+}
+.kt-landing .field label .opt{ color:var(--palm); text-transform:none; font-family:var(--font-body); letter-spacing:0; }
+.kt-landing .field input, .kt-landing .field select{
+  border:1.5px solid var(--sand-deep);
+  background:var(--sand);
+  border-radius:12px;
+  padding:14px 16px;
+  font-size:0.96rem;
+  color:var(--text-dark);
+  transition:border-color .3s var(--ease), background .3s var(--ease);
+  width:100%;
+  appearance:none;
+}
+.kt-landing .field select{
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%2311332F' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+  padding-right:40px;
+}
+.kt-landing .field select:disabled{ opacity:0.55; cursor:not-allowed; }
+.kt-landing .field input:hover, .kt-landing .field select:hover{ border-color:var(--palm-light); }
+.kt-landing .field input:focus, .kt-landing .field select:focus{
+  border-color:var(--brass);
+  background:var(--ivory);
+  outline:none;
+}
+.kt-landing .field small{ font-size:0.76rem; color:var(--text-soft); }
+.kt-landing .field-error{
+  font-size:0.76rem;
+  color:var(--clay);
+  display:none;
+  font-family:var(--font-mono);
+}
+.kt-landing .field.has-error input, .kt-landing .field.has-error select{ border-color:var(--clay); }
+.kt-landing .field.has-error .field-error{ display:block; }
+.kt-landing .form-submit{ width:100%; justify-content:center; margin-top:6px; }
+.kt-landing .success-panel{
+  display:none;
+  text-align:left;
+  padding:10px 0;
+}
+.kt-landing .success-panel.show{ display:block; }
+.kt-landing .success-panel .check{
+  width:54px; height:54px;
+  border-radius:50%;
+  background:var(--palm);
+  color:var(--ivory);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:20px;
+}
+.kt-landing .success-panel .check svg{ width:26px; height:26px; }
+.kt-landing .success-panel h4{ font-size:1.35rem; margin-bottom:10px; }
+.kt-landing .success-panel p{ color:var(--text-soft); font-size:0.94rem; line-height:1.6; }
+.kt-landing .success-summary{
+  margin-top:22px;
+  background:var(--sand);
+  border:1px solid var(--sand-deep);
+  border-radius:14px;
+  padding:18px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-size:0.88rem;
+}
+.kt-landing .success-summary div{ display:flex; justify-content:space-between; gap:14px; }
+.kt-landing .success-summary span:first-child{ color:var(--text-soft); font-family:var(--font-mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; }
+.kt-landing .success-summary span:last-child{ font-weight:600; text-align:right; }
+.kt-landing .plan-again{ margin-top:22px; }
+.kt-landing .plan-form.hide{ display:none; }
+
+/* ============================================================
+   FINAL CTA
+============================================================ */
+.kt-landing .final-cta{
+  background:radial-gradient(120% 140% at 50% 120%, #1C4F47 0%, var(--ink) 60%), var(--ink);
+  color:var(--ivory);
+  text-align:center;
+  padding:120px 0;
+  position:relative;
+  overflow:hidden;
+}
+.kt-landing .final-cta h2{
+  font-size:clamp(2.1rem, 4vw, 3.4rem);
+  max-width:18ch;
+  margin:0 auto;
+  line-height:1.1;
+}
+.kt-landing .final-cta h2 em{ font-style:italic; color:var(--brass-light); }
+.kt-landing .final-cta p{
+  margin:22px auto 0;
+  max-width:46ch;
+  color:rgba(251,246,236,0.72);
+  font-size:1.05rem;
+}
+.kt-landing .final-actions{ margin-top:40px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.kt-landing .footer{ background:var(--ink); color:rgba(251,246,236,0.65); padding:64px 0 30px; }
+.kt-landing .footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:40px;
+  padding-bottom:48px;
+}
+@media (max-width:780px){
+.kt-landing .footer-grid{ grid-template-columns:1fr 1fr; } }
+.kt-landing .footer-brand .brand{ margin-bottom:14px; }
+.kt-landing .footer-brand p{ font-size:0.88rem; line-height:1.6; max-width:32ch; color:rgba(251,246,236,0.55); }
+.kt-landing .footer-col h5{
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--brass-light);
+  margin-bottom:16px;
+}
+.kt-landing .footer-col a, .kt-landing .footer-col span{
+  display:block;
+  font-size:0.88rem;
+  padding:6px 0;
+  color:rgba(251,246,236,0.65);
+  transition:color .3s var(--ease);
+}
+.kt-landing .footer-col a:hover{ color:var(--ivory); }
+.kt-landing .footer-bottom{
+  border-top:1px solid rgba(251,246,236,0.1);
+  padding-top:26px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+  font-size:0.8rem;
+  color:rgba(251,246,236,0.45);
+  font-family:var(--font-mono);
+}
+
+.kt-landing [id]{ scroll-margin-top: 90px; }
+.kt-landing{ overflow-x:hidden; }
+
+</style>
+
+
+<!-- ============================================================
+     NAV
+============================================================ -->
+<header class="nav">
+  <div class="wrap">
+    <a href="#kt-top" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 17c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 6 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 3v9M12 12c3 0 5 1 5 1l-5 3-5-3s2-1 5-1z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      Anantham
+    </a>
+    <nav class="nav-links" id="kt-navLinks">
+      <a href="#kt-explore">Explore</a>
+      <a href="#kt-gallery">Highlights</a>
+      <a href="#kt-why">Why Us</a>
+      <a href="#kt-testimonials">Stories</a>
+      <a href="#kt-plan">Plan a Route</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#kt-plan" class="btn btn-brass"><span class="btn-text-full">Plan Your Trip</span><span class="btn-arrow">→</span></a>
+      <button class="nav-toggle" id="kt-navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="kt-navLinks">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="kt-top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-base">
+        <p class="eyebrow hero-eyebrow">God's Own Country · Kerala Tourism</p>
+        <h1>The backwaters are in <em>no hurry.</em> Neither should you be.</h1>
+        <p class="hero-sub">From candle-lit houseboats on the Vembanad to mist settling over the Western Ghats — fourteen districts, one unhurried coastline. Tell us where you're drawn to, and we'll shape the route around it.</p>
+        <div class="hero-actions">
+          <a href="#kt-plan" class="btn btn-brass">Plan Your Route <span class="btn-arrow">→</span></a>
+          <a href="#kt-explore" class="btn btn-ghost">See the Districts</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>14</b><span>Districts</span></div>
+          <div class="hero-stat"><b>≈600km</b><span>Coastline</span></div>
+          <div class="hero-stat"><b>44</b><span>Rivers</span></div>
+          <div class="hero-stat"><b>2</b><span>Monsoons a year</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 480 420" fill="none">
+          <circle class="hero-moon" cx="380" cy="78" r="46" fill="#E2C27E" opacity="0.85"/>
+          <path d="M0 230 C 80 210, 160 250, 240 228 S 400 210, 480 232" stroke="#3C7A5A" stroke-width="1.4" opacity="0.35" class="hero-water-line"/>
+          <path d="M0 268 C 90 248, 170 288, 250 266 S 410 248, 480 270" stroke="#8FB89E" stroke-width="1.4" opacity="0.4" class="hero-water-line l2"/>
+          <path d="M0 306 C 100 286, 180 326, 260 304 S 420 286, 480 308" stroke="#E2C27E" stroke-width="1.2" opacity="0.3" class="hero-water-line l3"/>
+          <g class="hero-boat">
+            <path d="M120 250 Q 240 350 360 250 L 340 268 Q 240 330 140 268 Z" fill="#1B4A43" stroke="#E2C27E" stroke-width="1.5"/>
+            <path d="M165 250 Q 180 175 240 168 Q 300 175 315 250 Z" fill="#11332F" stroke="#C99A3A" stroke-width="1.6"/>
+            <path d="M175 248 V205 M205 248 V190 M240 248 V182 M275 248 V190 M305 248 V205" stroke="#C99A3A" stroke-width="1" opacity="0.55"/>
+          </g>
+          <g class="hero-bird" opacity="0.7"><path d="M60 110 q10 -10 20 0 q10 -10 20 0" stroke="#E2C27E" stroke-width="1.6" fill="none" stroke-linecap="round"/></g>
+          <g class="hero-bird" style="animation-delay:2s" opacity="0.5"><path d="M380 150 q8 -8 16 0 q8 -8 16 0" stroke="#FBF6EC" stroke-width="1.4" fill="none" stroke-linecap="round" transform="translate(-30,0)"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <svg class="kasavu kasavu--light" viewBox="0 0 200 16" preserveAspectRatio="none"><polyline points="0,14 10,2 20,14 30,2 40,14 50,2 60,14 70,2 80,14 90,2 100,14 110,2 120,14 130,2 140,14 150,2 160,14 170,2 180,14 190,2 200,14" fill="none" stroke="#C99A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</section>
+
+<!-- ============================================================
+     FEATURE CARDS
+============================================================ -->
+<section class="section" id="kt-explore">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Four Ways In</p>
+      <h2>Kerala doesn't fit on one postcard.</h2>
+      <p>Pick the version that matches your pace — they're often only an hour or two apart from each other.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30c4 3 8 3 12 0s8-3 12 0 8 3 12 0"/><path d="M14 30 12 22h24l-2 8"/><path d="M18 22V12h6l4 10"/></svg>
+        </div>
+        <h3>Backwaters</h3>
+        <p>Vembanad, Punnamada and the slow canals of Alappuzha. Houseboats, paddy fields below sea level, herons that don't startle.</p>
+        <span class="feature-tag">Alappuzha · Kottayam · Kollam</span>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 34 14 18l6 8 6-12 8 14 6-8 4 6"/><circle cx="36" cy="10" r="3"/></svg>
+        </div>
+        <h3>Highlands</h3>
+        <p>Munnar's tea hills, Wayanad's spice slopes, Vagamon's wind. Cool air above 1,500m, where the Western Ghats earn their UNESCO listing.</p>
+        <span class="feature-tag">Idukki · Wayanad · Kottayam</span>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 40V20l14-10 14 10v20"/><path d="M10 24h28M16 40V28h6v12M26 40V28h6v12"/></svg>
+        </div>
+        <h3>Heritage</h3>
+        <p>Fort Kochi's tiled warehouses, Mattancherry's spice godowns, murals older than most nations. A trading post since long before the phrase existed.</p>
+        <span class="feature-tag">Ernakulam · Thrissur</span>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 40c0-12 4-26 4-26s2 6 2 14-2 12-2 12"/><path d="M18 14c4-2 8 0 8 4M18 14c-2-4-6-4-8-1M18 14c1-5 6-7 9-4"/><path d="M4 40c8-3 32-3 40 0"/></svg>
+        </div>
+        <h3>Coast</h3>
+        <p>Kovalam's crescent, Varkala's cliffs, Marari's quiet fishing villages. 600km of Arabian Sea, and almost none of it crowded.</p>
+        <span class="feature-tag">Thiruvananthapuram · Kozhikode</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY / HIGHLIGHTS — bento grid of illustrated places
+============================================================ -->
+<section class="section" id="kt-gallery" style="background:var(--ivory);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Highlights</p>
+      <h2>Six places that explain Kerala</h2>
+      <p>Not a top-ten list — a sample of how different one district feels from the next.</p>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="gallery-block wide tall reveal">
+        <svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice"><rect width="400" height="340" fill="#11332F"/><path d="M0 230q60-30 100-10t100 0 100-10 100 10v110H0z" fill="#1B4A43"/><path d="M260 60c-30 60-30 120 10 170h20c-50-60-50-120-10-170z" fill="#3C7A5A" opacity="0.5"/><path d="M0 130c30 70 0 0 60 0s100-10 160 10 100 20 180-10v200H0z" fill="#0D2C28"/><g stroke="#C99A3A" stroke-width="2" fill="none" stroke-linecap="round"><path d="M40 270c100 30 220 30 320 0"/></g><circle cx="330" cy="60" r="34" fill="#E2C27E" opacity="0.9"/></svg>
+        <div class="gallery-info"><span>Thrissur</span><b>Athirappilly Falls</b><p>Kerala's widest waterfall, full force June through September.</p></div>
+      </div>
+
+      <div class="gallery-block reveal">
+        <svg viewBox="0 0 300 170" preserveAspectRatio="xMidYMid slice"><rect width="300" height="170" fill="#1B4A43"/><path d="M0 170c20-60 40-90 60-90s30 40 50 40 30-60 60-60 40 50 60 50 30-30 70-30v90z" fill="#3C7A5A"/><path d="M0 170c30-40 50-60 70-60s30 30 50 30 30-50 60-50 40 40 60 40 30-20 60-20v60z" fill="#8FB89E" opacity="0.6"/></svg>
+        <div class="gallery-info"><span>Idukki</span><b>Munnar Tea Hills</b><p>Rows of tea climbing 1,600m, cool year-round.</p></div>
+      </div>
+
+      <div class="gallery-block narrow reveal">
+        <svg viewBox="0 0 200 170" preserveAspectRatio="xMidYMid slice"><rect width="200" height="170" fill="#0D2C28"/><path d="M40 170V90l60-40 60 40v80" fill="none" stroke="#E2C27E" stroke-width="2"/><path d="M40 110h120M55 170V120h20v50M115 170V120h20v50" stroke="#C99A3A" stroke-width="1.4"/></svg>
+        <div class="gallery-info"><span>Ernakulam</span><b>Fort Kochi</b><p>Chinese fishing nets and Portuguese-tiled lanes.</p></div>
+      </div>
+
+      <div class="gallery-block reveal">
+        <svg viewBox="0 0 300 170" preserveAspectRatio="xMidYMid slice"><rect width="300" height="170" fill="#1B4A43"/><ellipse cx="150" cy="150" rx="220" ry="60" fill="#11332F"/><path d="M90 150c10-30 5-60-10-80" stroke="#C99A3A" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M210 150c-10-30 -5-60 10-80" stroke="#8FB89E" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="150" cy="40" r="20" fill="#E2C27E" opacity="0.8"/></svg>
+        <div class="gallery-info"><span>Kottayam</span><b>Kumarakom</b><p>Lake-edge birding and floating cottages on Vembanad.</p></div>
+      </div>
+
+      <div class="gallery-block wide reveal">
+        <svg viewBox="0 0 400 170" preserveAspectRatio="xMidYMid slice"><rect width="400" height="170" fill="#0D2C28"/><path d="M0 170 60 70 120 170Z" fill="#1B4A43"/><path d="M90 170 160 50 230 170Z" fill="#3C7A5A"/><path d="M190 170 270 80 350 170Z" fill="#1B4A43"/><circle cx="330" cy="40" r="16" fill="#E2C27E"/></svg>
+        <div class="gallery-info"><span>Wayanad</span><b>Chembra &amp; Edakkal</b><p>Heart-shaped lakes, hills, and 6,000-year-old rock carvings.</p></div>
+      </div>
+
+      <div class="gallery-block narrow reveal">
+        <svg viewBox="0 0 200 170" preserveAspectRatio="xMidYMid slice"><rect width="200" height="170" fill="#1B4A43"/><path d="M0 110 L80 30 L130 90 L200 20" stroke="#C99A3A" stroke-width="2" fill="none"/><path d="M0 170c40-20 80-10 100 0s60-20 100 0v0H0z" fill="#11332F"/></svg>
+        <div class="gallery-info"><span>Thiruvananthapuram</span><b>Varkala Cliffs</b><p>Red laterite cliffs dropping straight to the Arabian Sea.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY CHOOSE US
+============================================================ -->
+<section class="section" id="kt-why">
+  <div class="wrap why-grid">
+    <div class="reveal">
+      <p class="eyebrow">Why Plan With Us</p>
+      <p class="why-pin">We route by <em>district and place</em> — not a generic top-ten assembled from somewhere else.</p>
+    </div>
+    <div class="why-list reveal">
+      <div class="why-item">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-3.5 6L9 13l4.5-4z"/></svg></div>
+        <div class="why-text"><h4>Local-first routes</h4><p>You choose the district and the place. We build the trip around that, not the other way round.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17a4 4 0 110-8 5 5 0 019.6-1.5A4 4 0 0117 17H7z"/><path d="M9 20l-1 2M13 20l-1 2M17 20l-1 2"/></svg></div>
+        <div class="why-text"><h4>Built for the monsoon too</h4><p>Kerala doesn't pause June to September. We'll tell you honestly what's open, and what's better seen in October.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M8 7V5a4 4 0 018 0v2"/></svg></div>
+        <div class="why-text"><h4>No bloated packages</h4><p>No forced 8-city itineraries. Tell us the area, even a neighbourhood, and we shape around it.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg></div>
+        <div class="why-text"><h4>Timing that matters</h4><p>Backwater light, hill-station cold, beach tide times — when you arrive changes what you see.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section class="section section--dark" id="kt-testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Stories</p>
+      <h2>People who took the slower route</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <span class="testi-quote-mark">“</span>
+        <p class="quote">We asked for Alappuzha specifically, not "Kerala backwaters" in general, and the difference showed. Two nights on a houseboat near Punnamada, no rush between stops, and the kids slept through the best part — sunrise over the paddy fields.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">AR</div>
+          <div><b>Aanya R.</b><span>Bengaluru · Family trip to Alappuzha</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <span class="testi-quote-mark">“</span>
+        <p class="quote">Two weeks, Munnar to Kovalam, and every leg felt like it was picked for us rather than copy-pasted from a brochure. The tea-hill mornings were colder than we packed for — worth knowing in advance.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">T&L</div>
+          <div><b>Tom &amp; Liesel</b><span>Rotterdam · Highlands to coast</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <span class="testi-quote-mark">“</span>
+        <p class="quote">I'm from Kochi and still learned new corners of Wayanad I'd never been told about. It's rare to find a planner that goes past the obvious five places.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">DM</div>
+          <div><b>Devika Menon</b><span>Kochi · Weekend in Wayanad</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DYNAMIC FORM
+============================================================ -->
+<section class="section plan-section" id="kt-plan">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Plan a Route</p>
+      <h2>Tell us where, we'll work out when and how</h2>
+      <p>Pick a district, then a place inside it. The area field is optional — use it if you already know a neighbourhood, jetty, or trailhead.</p>
+    </div>
+
+    <div class="plan-shell reveal">
+      <div class="plan-side">
+        <h3>What happens after you submit</h3>
+        <p>This form captures your starting point. A planner familiar with that exact district follows up with route options shaped around the place you picked.</p>
+        <div class="plan-points">
+          <div class="plan-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Reply within one working day</div>
+          <div class="plan-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> No package pushed before you ask</div>
+          <div class="plan-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Details stay with your planner, not a mailing list</div>
+        </div>
+      </div>
+
+      <div>
+        <form class="plan-form" id="kt-planForm" novalidate>
+          <div class="form-row">
+            <div class="field" id="kt-field-district">
+              <label for="kt-district">District</label>
+              <select id="kt-district" name="district" required>
+                <option value="" disabled selected>Select a district</option>
+              </select>
+              <span class="field-error">Pick a district to continue.</span>
+            </div>
+            <div class="field" id="kt-field-place">
+              <label for="kt-place">Place</label>
+              <select id="kt-place" name="place" required disabled>
+                <option value="" disabled selected>Select a district first</option>
+              </select>
+              <span class="field-error">Pick a place within the district.</span>
+            </div>
+          </div>
+
+          <div class="form-row single">
+            <div class="field" id="kt-field-area">
+              <label for="kt-area">Area <span class="opt">(optional)</span></label>
+              <input type="text" id="kt-area" name="area" placeholder="e.g. near the jetty, a specific street, a homestay name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field" id="kt-field-name">
+              <label for="kt-name">Full name</label>
+              <input type="text" id="kt-name" name="name" placeholder="Your name" required>
+              <span class="field-error">Enter your name.</span>
+            </div>
+            <div class="field" id="kt-field-email">
+              <label for="kt-email">Email</label>
+              <input type="email" id="kt-email" name="email" placeholder="you@email.com" required>
+              <span class="field-error">Enter a valid email.</span>
+            </div>
+          </div>
+
+          <div class="form-row single">
+            <div class="field" id="kt-field-phone">
+              <label for="kt-phone">Phone</label>
+              <input type="tel" id="kt-phone" name="phone" placeholder="With country code, e.g. +91 98765 43210" required>
+              <span class="field-error">Enter a valid phone number.</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-dark form-submit">Submit Request <span class="btn-arrow">→</span></button>
+        </form>
+
+        <div class="success-panel" id="kt-successPanel">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h4>Request received</h4>
+          <p>A planner for that district will follow up by email shortly. Here's what was sent:</p>
+          <div class="success-summary" id="kt-successSummary"></div>
+          <button class="btn btn-ghost plan-again" id="kt-planAgainBtn" style="color:var(--ink); border-color:var(--sand-deep);">Plan another route</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+============================================================ -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2 class="reveal">Your Kerala itinerary starts with <em>one district.</em></h2>
+    <p class="reveal">No checklist, no forced order of cities. Pick where you're drawn to and let the route follow.</p>
+    <div class="final-actions reveal">
+      <a href="#kt-plan" class="btn btn-brass">Start Planning <span class="btn-arrow">→</span></a>
+      <a href="#kt-explore" class="btn btn-ghost">Browse Districts Again</a>
+    </div>
+  </div>
+  <svg class="kasavu kasavu--light" viewBox="0 0 200 16" preserveAspectRatio="none" style="position:absolute;top:0;left:0;"><polyline points="0,14 10,2 20,14 30,2 40,14 50,2 60,14 70,2 80,14 90,2 100,14 110,2 120,14 130,2 140,14 150,2 160,14 170,2 180,14 190,2 200,14" fill="none" stroke="#C99A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#kt-top" class="brand">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 6 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 3v9M12 12c3 0 5 1 5 1l-5 3-5-3s2-1 5-1z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Anantham
+        </a>
+        <p>Built for explorers planning by place, not a checklist of fourteen districts in nine days.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="#kt-explore">Districts</a>
+        <a href="#kt-gallery">Highlights</a>
+        <a href="#kt-why">Why Us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Plan</h5>
+        <a href="#kt-testimonials">Stories</a>
+        <a href="#kt-plan">Plan a Route</a>
+      </div>
+      <div class="footer-col">
+        <h5>Reach Us</h5>
+        <span>hello@anantham.travel</span>
+        <span>Kochi, Kerala</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Anantham Travel · Kerala Tourism</span>
+      <span>Made slowly, on purpose</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+
+/* ============================================================
+   DATA — districts and their places (min 5 districts / 3 places each)
+============================================================ */
+const KERALA_DATA = {
+  "Ernakulam": ["Fort Kochi", "Mattancherry", "Marine Drive", "Cherai Beach"],
+  "Alappuzha": ["Alappuzha Backwaters", "Marari Beach", "Pathiramanal Island", "Punnamada Lake"],
+  "Kottayam": ["Kumarakom", "Vagamon", "Thirunakkara Temple", "Erumeli"],
+  "Idukki": ["Munnar", "Thekkady", "Anamudi Peak", "Top Station"],
+  "Wayanad": ["Chembra Peak", "Edakkal Caves", "Banasura Sagar Dam", "Soochipara Falls"],
+  "Kozhikode": ["Kozhikode Beach", "Kappad Beach", "Thusharagiri Falls", "Beypore"],
+  "Thrissur": ["Athirappilly Falls", "Vadakkunnathan Temple", "Guruvayur", "Punnathur Kotta"],
+  "Thiruvananthapuram": ["Kovalam Beach", "Padmanabhaswamy Temple", "Veli Tourist Village", "Ponmudi"],
+  "Kollam": ["Ashtamudi Lake", "Thenmala", "Munroe Island", "Palaruvi Waterfalls"],
+  "Kannur": ["Muzhappilangad Beach", "Parassinikadavu", "Aralam Wildlife Sanctuary", "St. Angelo Fort"]
+};
+
+const districtSelect = document.getElementById('kt-district');
+const placeSelect = document.getElementById('kt-place');
+
+Object.keys(KERALA_DATA).forEach(district => {
+  const opt = document.createElement('option');
+  opt.value = district;
+  opt.textContent = district;
+  districtSelect.appendChild(opt);
+});
+
+districtSelect.addEventListener('change', () => {
+  const places = KERALA_DATA[districtSelect.value] || [];
+  placeSelect.innerHTML = '';
+  if(places.length){
+    placeSelect.disabled = false;
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    placeholder.textContent = 'Select a place';
+    placeSelect.appendChild(placeholder);
+    places.forEach(place => {
+      const opt = document.createElement('option');
+      opt.value = place;
+      opt.textContent = place;
+      placeSelect.appendChild(opt);
+    });
+  } else {
+    placeSelect.disabled = true;
+    placeSelect.innerHTML = '<option value="" disabled selected>Select a district first</option>';
+  }
+  clearError('kt-field-place');
+  clearError('kt-field-district');
+});
+
+/* ============================================================
+   NAV TOGGLE (mobile)
+============================================================ */
+const navToggle = document.getElementById('kt-navToggle');
+const navLinks = document.getElementById('kt-navLinks');
+navToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+}));
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+const ktRoot = document.querySelector('.kt-landing');
+const revealEls = ktRoot.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('in-view'));
+}
+
+/* ============================================================
+   FORM VALIDATION + SUBMIT
+============================================================ */
+const form = document.getElementById('kt-planForm');
+const successPanel = document.getElementById('kt-successPanel');
+const successSummary = document.getElementById('kt-successSummary');
+const planAgainBtn = document.getElementById('kt-planAgainBtn');
+
+function setError(fieldId, hasError){
+  const field = document.getElementById(fieldId);
+  field.classList.toggle('has-error', hasError);
+}
+function clearError(fieldId){ setError(fieldId, false); }
+
+function isValidEmail(value){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+function isValidPhone(value){
+  const digits = value.replace(/[^\d]/g, '');
+  return digits.length >= 7 && digits.length <= 15;
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let valid = true;
+
+  const district = document.getElementById('kt-district').value;
+  const place = document.getElementById('kt-place').value;
+  const area = document.getElementById('kt-area').value.trim();
+  const name = document.getElementById('kt-name').value.trim();
+  const email = document.getElementById('kt-email').value.trim();
+  const phone = document.getElementById('kt-phone').value.trim();
+
+  if(!district){ setError('kt-field-district', true); valid = false; } else clearError('kt-field-district');
+  if(!place){ setError('kt-field-place', true); valid = false; } else clearError('kt-field-place');
+  if(!name){ setError('kt-field-name', true); valid = false; } else clearError('kt-field-name');
+  if(!email || !isValidEmail(email)){ setError('kt-field-email', true); valid = false; } else clearError('kt-field-email');
+  if(!phone || !isValidPhone(phone)){ setError('kt-field-phone', true); valid = false; } else clearError('kt-field-phone');
+
+  if(!valid){
+    const firstError = form.querySelector('.has-error');
+    if(firstError) firstError.scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+
+  successSummary.innerHTML = `
+    <div><span>District</span><span>${district}</span></div>
+    <div><span>Place</span><span>${place}</span></div>
+    ${area ? `<div><span>Area</span><span>${area}</span></div>` : ''}
+    <div><span>Name</span><span>${name}</span></div>
+    <div><span>Email</span><span>${email}</span></div>
+    <div><span>Phone</span><span>${phone}</span></div>
+  `;
+  form.classList.add('hide');
+  successPanel.classList.add('show');
+  successPanel.scrollIntoView({ behavior:'smooth', block:'center' });
+});
+
+planAgainBtn.addEventListener('click', () => {
+  form.reset();
+  placeSelect.disabled = true;
+  placeSelect.innerHTML = '<option value="" disabled selected>Select a district first</option>';
+  form.querySelectorAll('.field').forEach(f => f.classList.remove('has-error'));
+  successPanel.classList.remove('show');
+  form.classList.remove('hide');
+  form.scrollIntoView({ behavior:'smooth', block:'center' });
+});
+
+/* Smooth, offset-aware in-page scrolling (scoped to this widget,
+   since we don't control the theme's <html> element) */
+const ktReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ktRoot.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href^="#kt-"]');
+  if(!link) return;
+  const target = document.getElementById(link.getAttribute('href').slice(1));
+  if(!target) return;
+  e.preventDefault();
+  target.scrollIntoView({ behavior: ktReduceMotion ? 'auto' : 'smooth', block: 'start' });
+});
+
+})();
+</script>
+</div>
